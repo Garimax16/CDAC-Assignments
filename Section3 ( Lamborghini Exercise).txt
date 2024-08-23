@@ -1,0 +1,360 @@
+ Task 1: Sum of the first 50 natural numbers
+public class SumOfNaturalNumbers {
+    public static void main(String[] args) {
+        int sum = 0;
+        for (int i = 1; i <= 50; i++) {
+            sum += i;
+        }
+        System.out.println("Sum of the first 50 natural numbers: " + sum);
+    }
+}
+
+ Task 2: Factorial of the number 10
+public class Factorial {
+    public static void main(String[] args) {
+        int num = 10;
+        long factorial = 1;
+        for (int i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        System.out.println("Factorial of 10: " + factorial);
+    }
+}
+
+ Task 3: Print all multiples of 7 between 1 and 100
+public class MultiplesOfSeven {
+    public static void main(String[] args) {
+        System.out.println("Multiples of 7 between 1 and 100:");
+        for (int i = 7; i <= 100; i += 7) {
+            System.out.println(i);
+        }
+    }
+}
+
+ Task 4: Reverse the digits of the number 1234
+public class ReverseDigits {
+    public static void main(String[] args) {
+        int number = 1234;
+        int reversed = 0;
+        while (number != 0) {
+            int digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
+        }
+        System.out.println("Reversed number: " + reversed);
+    }
+}
+
+ Task 5: Fibonacci sequence up to the number 21
+public class FibonacciSequence {
+    public static void main(String[] args) {
+        int a = 0, b = 1;
+        System.out.print("Fibonacci sequence up to 21: ");
+        while (a <= 21) {
+            System.out.print(a + " ");
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+        System.out.println();
+    }
+}
+
+ Task 6: Find and print the first 5 prime numbers
+public class FirstFivePrimes {
+    public static void main(String[] args) {
+        int count = 0, num = 2;
+        System.out.println("First 5 prime numbers:");
+        while (count < 5) {
+            boolean isPrime = true;
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                System.out.println(num);
+                count++;
+            }
+            num++;
+        }
+    }
+}
+
+ Task 7: Sum of the digits of the number 9876
+public class SumOfDigits {
+    public static void main(String[] args) {
+        int number = 9876;
+        int sum = 0;
+        while (number != 0) {
+            sum += number % 10;
+            number /= 10;
+        }
+        System.out.println("Sum of digits: " + sum);
+    }
+}
+
+ Task 8: Count down from 10 to 0
+public class Countdown {
+    public static void main(String[] args) {
+        for (int i = 10; i >= 0; i--) {
+            System.out.println(i);
+        }
+    }
+}
+
+ Task 9: Find and print the largest digit in the number 4825
+public class LargestDigit {
+    public static void main(String[] args) {
+        int number = 4825;
+        int largest = 0;
+        while (number != 0) {
+            int digit = number % 10;
+            if (digit > largest) {
+                largest = digit;
+            }
+            number /= 10;
+        }
+        System.out.println("Largest digit: " + largest);
+    }
+}
+
+ Task 10: Print all even numbers between 1 and 50
+public class EvenNumbers {
+    public static void main(String[] args) {
+        System.out.println("Even numbers between 1 and 50:");
+        for (int i = 2; i <= 50; i += 2) {
+            System.out.println(i);
+        }
+    }
+}
+
+ Task 11: Demonstrate use of pre-increment and post-decrement in a single expression
+public class IncrementDecrementOperators {
+    public static void main(String[] args) {
+        int x = 5;
+        int y = ++x - x-- + x;
+        System.out.println("Result of expression: " + y);
+    }
+}
+
+ Task 12: Draw a pattern of 5 rows of asterisks
+public class AsteriskPattern {
+    public static void main(String[] args) {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("*****");
+        }
+    }
+}
+
+ Task 13: Print the pattern with numbers and asterisks
+public class NumberAsteriskPattern {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(i + (j < i ? "*" : ""));
+            }
+            System.out.println();
+        }
+        for (int i = 5; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(i + (j < i ? "*" : ""));
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 14: Print the pattern with increasing asterisks
+public class IncreasingAsterisks {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i += 2) {
+            for (int j = 5; j > i; j -= 2) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 15: Print the right triangle pattern with asterisks
+public class RightTrianglePattern {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 16: Print the centered increasing asterisk pattern
+public class CenteredIncreasingAsterisks {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i += 2) {
+            for (int j = 5; j > i; j -= 2) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 17: Print the right-aligned decreasing asterisk pattern
+public class RightAlignedDecreasingAsterisks {
+    public static void main(String[] args) {
+        for (int i = 5; i >= 1; i--) {
+            for (int j = 5; j > i; j--) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 18: Print a diamond-like pattern with asterisks
+public class DiamondPattern {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 7; i += 2) {
+            for (int j = 7; j > i; j -= 2) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        for (int i = 5; i >= 1; i -= 2) {
+            for (int j = 7; j > i; j -= 2) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 19: Print the pattern with increasing sequence of numbers
+public class IncreasingNumberPattern {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j + (j < i ? "*" : ""));
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 20: Print the pattern with decreasing sequence of numbers
+public class DecreasingNumberPattern {
+    public static void main(String[] args) {
+        for (int i = 5; i >= 1; i--) {
+            for (int j = 5; j >= 6 - i; j--) {
+                System.out.print(j + (j > 6 - i ? "*" : ""));
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 21: Print the pattern with odd numbers
+public class OddNumberPattern {
+    public static void main(String[] args) {
+        int num = 1;
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(num + (j < i ? "*" : ""));
+                num += 2;
+            }
+            num = 1;
+            System.out.println();
+        }
+    }
+}
+
+ Task 22: Print a diamond-like pattern with decreasing and increasing asterisks
+public class DecreasingIncreasingAsterisks {
+    public static void main(String[] args) {
+        for (int i = 9; i >= 1; i -= 2) {
+            for (int j = 9; j > i; j -= 2) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        for (int i = 3; i <= 9; i += 2) {
+            for (int j = 9; j > i; j -= 2) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 23: Print the pattern with repeating numbers in rows
+public class RepeatingNumberRows {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= 5; j++) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 24: Print the pattern with increasing numbers of digits
+public class IncreasingDigitsPattern {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 25: Print the pattern with increasing sequence of numbers in each row
+public class IncreasingSequencePattern {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+    }
+}
+
+ Task 26: Print the pattern with continuous increasing sequence of numbers
+public class ContinuousNumberSequencePattern {
+    public static void main(String[] args) {
+        int num = 1;
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(num++ + " ");
+            }
+            System.out.println();
+        }
+    }
+}
