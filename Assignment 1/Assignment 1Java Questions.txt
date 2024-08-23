@@ -1,0 +1,93 @@
+1. Check Positive Number-
+
+ class PositiveNumber{
+    public static void main(String[] args){
+        int number=10;
+        if (number>0){
+            System.out.println("The number is positive");
+        }else {
+            System.out.println("The number is not positive");
+        }
+    }
+}
+
+2.Check Negative Number-
+
+ class NegativeNumber{
+    public static void main(String[] args){
+        int number=10;
+        if (number<0){
+            System.out.println("The number is negative");
+        }else {
+            System.out.println("The number is not negative");
+        }
+    }
+}
+
+3.Check Even or Odd number-
+
+ class CheckoddevenNumber{
+    public static void main(String[] args){
+                int number=10;
+                if(number%2==0){
+                    System.out.println("The number is even");
+                }else{
+                    System.out.println("The number is odd");
+                }
+    }
+ }
+
+
+4. Good Morining Message-
+
+ class GoodMorningMessage{
+    public static void main(String[] args){
+                int hour=9;
+                if(hour >=5 && hour<12){
+                    System.out.println("Good Morning");
+                }
+    }
+ }
+
+
+5. Largest of three numbers -
+
+ class LargestofThree{
+    public static void main(String[] args){
+                int a=2;
+                int b=6;
+                int c=5;
+                if(a>=b && a>=c){
+                    System.out.println("The largest number is:" +a);
+                }else if(b>=c){
+                    System.out.println("The largest number is:" +b);
+                }else {
+                    System.out.println("The largest number is:" +c);
+                }
+    }
+ }
+
+
+6. Area of Square -
+
+ class SquareArea{
+    public static void main(String[] args){
+                int side=10;
+                int area=side*side;
+
+                    System.out.println("The area of square is:"  + area);
+    }
+ }
+
+
+7.Area of Rectangle -
+
+ class RectangleArea{
+    public static void main(String[] args){
+                int length=10;
+                int breadth=2;
+                int area=length*breadth;
+
+                    System.out.println("The area of square is:"  + area);
+    }
+ }
