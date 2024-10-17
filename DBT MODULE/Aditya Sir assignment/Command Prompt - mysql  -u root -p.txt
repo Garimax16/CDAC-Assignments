@@ -1,0 +1,469 @@
+Microsoft Windows [Version 10.0.22621.4317]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\garim>cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.39 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE database DB;
+ERROR 1007 (HY000): Can't create database 'db'; database exists
+mysql> CREATE database companyDB;
+ERROR 1007 (HY000): Can't create database 'companydb'; database exists
+mysql> CREATE database AK;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> -- Create Departments table
+mysql> CREATE TABLE Departments (
+    ->     dept_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     dept_name VARCHAR(100) NOT NULL UNIQUE
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql>
+mysql> -- Create Employees table
+mysql> CREATE TABLE Employees (
+    ->     emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     first_name VARCHAR(50) NOT NULL,
+    ->     last_name VARCHAR(50) NOT NULL,
+    ->     email VARCHAR(100),
+    ->     salary DECIMAL(10,2),
+    ->     hire_date DATE,
+    ->     dept_id INT,
+    ->     FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql>
+mysql> -- Create Projects table
+mysql> CREATE TABLE Projects (
+    ->     project_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     project_name VARCHAR(100) NOT NULL,
+    ->     start_date DATE NOT NULL,
+    ->     end_date DATE,
+    ->     dept_id INT,
+    ->     FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql> USE AK;
+Database changed
+mysql> -- Create Departments table
+mysql> CREATE TABLE Departments (
+    ->     dept_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     dept_name VARCHAR(100) NOT NULL UNIQUE
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql>
+mysql> -- Create Employees table
+mysql> CREATE TABLE Employees (
+    ->     emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     first_name VARCHAR(50) NOT NULL,
+    ->     last_name VARCHAR(50) NOT NULL,
+    ->     email VARCHAR(100),
+    ->     salary DECIMAL(10,2),
+    ->     hire_date DATE,
+    ->     dept_id INT,
+    ->     FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql>
+mysql> -- Create Projects table
+mysql> CREATE TABLE Projects (
+    ->     project_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     project_name VARCHAR(100) NOT NULL,
+    ->     start_date DATE NOT NULL,
+    ->     end_date DATE,
+    ->     dept_id INT,
+    ->     FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO Departments (department_id, department_name) VALUES
+    -> (1, 'IT'),
+    -> (2, 'HR'),
+    -> (3, 'Sales'),
+    -> (4, 'Finance'),
+    -> (5, 'Marketing');
+ERROR 1054 (42S22): Unknown column 'department_id' in 'field list'
+mysql> INSERT INTO Departments (dept_id, department_name) VALUES
+    -> (1, 'IT'),
+    -> (2, 'HR'),
+    -> (3, 'Sales'),
+    -> (4, 'Finance'),
+    -> (5, 'Marketing');
+ERROR 1054 (42S22): Unknown column 'department_name' in 'field list'
+mysql> INSERT INTO Departments (dept_id, dept_name) VALUES
+    -> (1, 'IT'),
+    -> (2, 'HR'),
+    -> (3, 'Sales'),
+    -> (4, 'Finance'),
+    -> (5, 'Marketing');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO Employees (emp_id, first_name, last_name, email, hire_date, salary, dept_id) VALUES
+    -> (101, 'Ravi', 'Sharma', 'ravi.sharma@specialforce.com', '2017-05-15', 55000, 1),
+    -> (102, 'Neha', 'Kapoor', 'neha.kapoor@specialforce.com', '2019-03-23', 48000, 2),
+    -> (103, 'Jyoti', 'Verma', 'jyoti.verma@specialforce.com', '2020-11-02', 60000, 1),
+    -> (104, 'Anil', 'Patil', 'anil.patil@specialforce.com', '2018-09-18', 70000, 3),
+    -> (105, 'Pooja', 'Singh', 'pooja.singh@specialforce.com', '2021-06-10', 40000, 4),
+    -> (106, 'Sanjay', 'Iyer', 'sanjay.iyer@specialforce.com', '2018-01-22', 75000, 3),
+    -> (107, 'Jatin', 'Reddy', 'jatin.reddy@specialforce.com', '2021-12-12', 85000, 2),
+    -> (108, 'Shreya', 'Mehta', 'shreya.mehta@specialforce.com', '2022-04-19', 30000, 5),
+    -> (109, 'Rajesh', 'Gupta', 'rajesh.gupta@specialforce.com', '2020-08-11', 90000, 1),
+    -> (110, 'Kavita', 'Nair', 'kavita.nair@specialforce.com', '2021-02-07', 50000, 2);
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO Projects (project_id, project_name, start_date, end_date, dept_id) VALUES
+    -> (201, 'Project Phoenix', '2021-01-15', '2022-07-30', 1),
+    -> (202, 'Client Onboarding', '2020-06-20', NULL, 3),
+    -> (203, 'Financial Overhaul', '2019-03-10', '2021-12-15', 4),
+    -> (204, 'Marketing Revamp', '2022-03-01', NULL, 5),
+    -> (205, 'Internal System Audit', '2023-02-15', NULL, 2);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> Select * from emp;
+ERROR 1146 (42S02): Table 'ak.emp' doesn't exist
+mysql> Select * from empoyees;
+ERROR 1146 (42S02): Table 'ak.empoyees' doesn't exist
+mysql> Select * from Employees;
++--------+------------+-----------+-------------------------------+----------+------------+---------+
+| emp_id | first_name | last_name | email                         | salary   | hire_date  | dept_id |
++--------+------------+-----------+-------------------------------+----------+------------+---------+
+|    101 | Ravi       | Sharma    | ravi.sharma@specialforce.com  | 55000.00 | 2017-05-15 |       1 |
+|    102 | Neha       | Kapoor    | neha.kapoor@specialforce.com  | 48000.00 | 2019-03-23 |       2 |
+|    103 | Jyoti      | Verma     | jyoti.verma@specialforce.com  | 60000.00 | 2020-11-02 |       1 |
+|    104 | Anil       | Patil     | anil.patil@specialforce.com   | 70000.00 | 2018-09-18 |       3 |
+|    105 | Pooja      | Singh     | pooja.singh@specialforce.com  | 40000.00 | 2021-06-10 |       4 |
+|    106 | Sanjay     | Iyer      | sanjay.iyer@specialforce.com  | 75000.00 | 2018-01-22 |       3 |
+|    107 | Jatin      | Reddy     | jatin.reddy@specialforce.com  | 85000.00 | 2021-12-12 |       2 |
+|    108 | Shreya     | Mehta     | shreya.mehta@specialforce.com | 30000.00 | 2022-04-19 |       5 |
+|    109 | Rajesh     | Gupta     | rajesh.gupta@specialforce.com | 90000.00 | 2020-08-11 |       1 |
+|    110 | Kavita     | Nair      | kavita.nair@specialforce.com  | 50000.00 | 2021-02-07 |       2 |
++--------+------------+-----------+-------------------------------+----------+------------+---------+
+10 rows in set (0.01 sec)
+
+mysql> Select * from Departments;
++---------+-----------+
+| dept_id | dept_name |
++---------+-----------+
+|       4 | Finance   |
+|       2 | HR        |
+|       1 | IT        |
+|       5 | Marketing |
+|       3 | Sales     |
++---------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> Select * from Projects;
++------------+-----------------------+------------+------------+---------+
+| project_id | project_name          | start_date | end_date   | dept_id |
++------------+-----------------------+------------+------------+---------+
+|        201 | Project Phoenix       | 2021-01-15 | 2022-07-30 |       1 |
+|        202 | Client Onboarding     | 2020-06-20 | NULL       |       3 |
+|        203 | Financial Overhaul    | 2019-03-10 | 2021-12-15 |       4 |
+|        204 | Marketing Revamp      | 2022-03-01 | NULL       |       5 |
+|        205 | Internal System Audit | 2023-02-15 | NULL       |       2 |
++------------+-----------------------+------------+------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT e.first_name, e.last_name, d.dept_name
+    -> FROM Employees e
+    -> LEFT JOIN Departments d ON e.dept_id = d.dept_id;
++------------+-----------+-----------+
+| first_name | last_name | dept_name |
++------------+-----------+-----------+
+| Ravi       | Sharma    | IT        |
+| Neha       | Kapoor    | HR        |
+| Jyoti      | Verma     | IT        |
+| Anil       | Patil     | Sales     |
+| Pooja      | Singh     | Finance   |
+| Sanjay     | Iyer      | Sales     |
+| Jatin      | Reddy     | HR        |
+| Shreya     | Mehta     | Marketing |
+| Rajesh     | Gupta     | IT        |
+| Kavita     | Nair      | HR        |
++------------+-----------+-----------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT first_name, last_name, salary
+    -> FROM Employees e
+    -> JOIN Departments d ON e.dept_id = d.dept_id
+    -> WHERE d.dept_name = 'IT' AND salary > 50000;
++------------+-----------+----------+
+| first_name | last_name | salary   |
++------------+-----------+----------+
+| Ravi       | Sharma    | 55000.00 |
+| Jyoti      | Verma     | 60000.00 |
+| Rajesh     | Gupta     | 90000.00 |
++------------+-----------+----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT first_name, last_name, email
+    -> FROM Employees
+    -> WHERE first_name LIKE 'J%' AND email LIKE '%specialforce.com%';
++------------+-----------+------------------------------+
+| first_name | last_name | email                        |
++------------+-----------+------------------------------+
+| Jyoti      | Verma     | jyoti.verma@specialforce.com |
+| Jatin      | Reddy     | jatin.reddy@specialforce.com |
++------------+-----------+------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT DISTINCT dept_name FROM Departments;
++-----------+
+| dept_name |
++-----------+
+| Finance   |
+| HR        |
+| IT        |
+| Marketing |
+| Sales     |
++-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT d.dept_name, SUM(e.salary) AS total_salary
+    -> FROM Employees e
+    -> JOIN Departments d ON e.dept_id = d.dept_id
+    -> GROUP BY d.dept_name;
++-----------+--------------+
+| dept_name | total_salary |
++-----------+--------------+
+| Finance   |     40000.00 |
+| HR        |    183000.00 |
+| IT        |    205000.00 |
+| Marketing |     30000.00 |
+| Sales     |    145000.00 |
++-----------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT AVG(salary) AS avg_salary
+    -> FROM Employees e
+    -> JOIN Departments d ON e.dept_id = d.dept_id
+    -> WHERE d.dept_name = 'Finance';
++--------------+
+| avg_salary   |
++--------------+
+| 40000.000000 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MIN(salary) AS min_salary, MAX(salary) AS max_salary
+    -> FROM Employees e
+    -> JOIN Departments d ON e.dept_id = d.dept_id
+    -> WHERE d.dept_name = 'Sales';
++------------+------------+
+| min_salary | max_salary |
++------------+------------+
+|   70000.00 |   75000.00 |
++------------+------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT d.dept_name, COUNT(e.emp_id) AS employee_count
+    -> FROM Employees e
+    -> JOIN Departments d ON e.dept_id = d.dept_id
+    -> GROUP BY d.dept_name;
++-----------+----------------+
+| dept_name | employee_count |
++-----------+----------------+
+| Finance   |              1 |
+| HR        |              3 |
+| IT        |              3 |
+| Marketing |              1 |
+| Sales     |              2 |
++-----------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT first_name, last_name, hire_date
+    -> FROM Employees
+    -> WHERE hire_date BETWEEN '2018-01-01' AND '2020-12-31'
+    -> ORDER BY hire_date ASC;
++------------+-----------+------------+
+| first_name | last_name | hire_date  |
++------------+-----------+------------+
+| Sanjay     | Iyer      | 2018-01-22 |
+| Anil       | Patil     | 2018-09-18 |
+| Neha       | Kapoor    | 2019-03-23 |
+| Rajesh     | Gupta     | 2020-08-11 |
+| Jyoti      | Verma     | 2020-11-02 |
++------------+-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT first_name, last_name
+    -> FROM Employees
+    -> WHERE email IS NULL;
+Empty set (0.00 sec)
+
+mysql> SELECT first_name, last_name
+    -> FROM Employees e
+    -> JOIN Departments d ON e.dept_id = d.dept_id
+    -> WHERE d.dept_name IN ('HR', 'Finance', 'IT');
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| Pooja      | Singh     |
+| Neha       | Kapoor    |
+| Jatin      | Reddy     |
+| Kavita     | Nair      |
+| Ravi       | Sharma    |
+| Jyoti      | Verma     |
+| Rajesh     | Gupta     |
++------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT first_name, last_name, salary
+    -> FROM Employees
+    -> WHERE salary BETWEEN 30000 AND 70000
+    -> ORDER BY salary DESC;
++------------+-----------+----------+
+| first_name | last_name | salary   |
++------------+-----------+----------+
+| Anil       | Patil     | 70000.00 |
+| Jyoti      | Verma     | 60000.00 |
+| Ravi       | Sharma    | 55000.00 |
+| Kavita     | Nair      | 50000.00 |
+| Neha       | Kapoor    | 48000.00 |
+| Pooja      | Singh     | 40000.00 |
+| Shreya     | Mehta     | 30000.00 |
++------------+-----------+----------+
+7 rows in set (0.00 sec)
+
+mysql> START TRANSACTION;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> UPDATE Employees e
+    -> JOIN Departments d ON e.dept_id = d.dept_id
+    -> SET e.salary = e.salary * 1.05
+    -> WHERE d.dept_name = 'HR';
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> SAVEPOINT before_sales_increase;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> UPDATE Employees e
+    -> JOIN Departments d ON e.dept_id = d.dept_id
+    -> SET e.salary = e.salary * 1.03
+    -> WHERE d.dept_name = 'Sales';
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> ROLLBACK TO SAVEPOINT before_sales_increase;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> ROLLBACK TO SAVEPOINT before_sales_increase;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SELECT e.first_name, e.last_name, d.dept_name
+    -> FROM Employees e
+    -> LEFT JOIN Departments d ON e.dept_id = d.dept_id;
++------------+-----------+-----------+
+| first_name | last_name | dept_name |
++------------+-----------+-----------+
+| Ravi       | Sharma    | IT        |
+| Neha       | Kapoor    | HR        |
+| Jyoti      | Verma     | IT        |
+| Anil       | Patil     | Sales     |
+| Pooja      | Singh     | Finance   |
+| Sanjay     | Iyer      | Sales     |
+| Jatin      | Reddy     | HR        |
+| Shreya     | Mehta     | Marketing |
+| Rajesh     | Gupta     | IT        |
+| Kavita     | Nair      | HR        |
++------------+-----------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT e.first_name, e.last_name, p.project_name
+    -> FROM Employees e
+    -> JOIN Projects p ON e.dept_id = p.dept_id
+    -> WHERE p.start_date > '2023-01-01';
++------------+-----------+-----------------------+
+| first_name | last_name | project_name          |
++------------+-----------+-----------------------+
+| Neha       | Kapoor    | Internal System Audit |
+| Jatin      | Reddy     | Internal System Audit |
+| Kavita     | Nair      | Internal System Audit |
++------------+-----------+-----------------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT d.dept_name
+    -> FROM Departments d
+    -> LEFT JOIN Employees e ON d.dept_id = e.dept_id
+    -> WHERE e.emp_id IS NULL;
+Empty set (0.00 sec)
+
+mysql> SELECT d.dept_name, e.first_name, e.last_name, e.salary
+    -> FROM Employees e
+    -> JOIN Departments d ON e.dept_id = d.dept_id
+    -> WHERE e.salary = (SELECT MAX(salary) FROM Employees WHERE dept_id = d.dept_id);
++-----------+------------+-----------+----------+
+| dept_name | first_name | last_name | salary   |
++-----------+------------+-----------+----------+
+| Finance   | Pooja      | Singh     | 40000.00 |
+| HR        | Jatin      | Reddy     | 89250.00 |
+| IT        | Rajesh     | Gupta     | 90000.00 |
+| Marketing | Shreya     | Mehta     | 30000.00 |
+| Sales     | Sanjay     | Iyer      | 75000.00 |
++-----------+------------+-----------+----------+
+5 rows in set (0.01 sec)
+
+mysql> DELETE FROM Employees;
+Query OK, 10 rows affected (0.01 sec)
+
+mysql> DROP TABLE Projects;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> ALTER TABLE Employees ADD COLUMN phone_number VARCHAR(15);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Projects ADD COLUMN budget DECIMAL(10,2);
+ERROR 1146 (42S02): Table 'ak.projects' doesn't exist
+mysql> SELECT MAX(salary) FROM Employees WHERE salary < (SELECT MAX(salary) FROM Employees);
++-------------+
+| MAX(salary) |
++-------------+
+|        NULL |
++-------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> SELECT salary FROM Employees ORDER BY salary DESC LIMIT 1,1;
+Empty set (0.00 sec)
+
+mysql> SELECT MAX(salary) FROM Employees WHERE salary < (SELECT MAX(salary) FROM Employees WHERE salary < (SELECT MAX(salary) FROM Employees));
++-------------+
+| MAX(salary) |
++-------------+
+|        NULL |
++-------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> SELECT salary FROM Employees ORDER BY salary DESC LIMIT 2,1;
+Empty set (0.00 sec)
+
+mysql> DROP TABLE Projects;
+ERROR 1051 (42S02): Unknown table 'ak.projects'
+mysql> DROP TABLE Departments;
+ERROR 3730 (HY000): Cannot drop table 'departments' referenced by a foreign key constraint 'employees_ibfk_1' on table 'employees'.
+mysql> TRUNCATE TABLE Employees;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> TRUNCATE TABLE Employees;TRUNCATE TABLE Employees;TRUNCATE TABLE Employees
