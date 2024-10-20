@@ -1,0 +1,33 @@
+                                                            Assignment – 10
+                                                     Joining a Table to Itself
+1) Write a query that produces all pairs of salespeople who are living in the same city. Exclude combinations of salespeople with themselves as well as duplicate rows with the order reversed.
+
+
+SELECT 
+    s1.salesperson_name AS salesperson_1, 
+    s2.salesperson_name AS salesperson_2, 
+    s1.city
+FROM 
+    salespeople s1
+JOIN 
+    salespeople s2 
+ON 
+    s1.city = s2.city 
+    AND s1.salesperson_id < s2.salesperson_id;
+This query joins the salespeople table with itself using the city column to find salespeople living in the same city.
+The condition s1.salesperson_id < s2.salesperson_id ensures that we do not get pairs of the same person (s1 and s2) and prevents duplicate pairs with reversed order.
+2) Write a query that produces the names and cities of all customers with the same rating as Hoffman.
+
+
+SELECT 
+    c.customer_name, 
+    c.city
+FROM 
+    customers c
+JOIN 
+    customers hoffman 
+ON 
+    hoffman.customer_name = 'Hoffman' 
+    AND c.rating = hoffman.rating;
+This query joins the customers table with itself by matching the rating of all customers with that of Hoffman.
+The condition hoffman.customer_name = 'Hoffman' ensures that the comparison is based on Hoffman's rating.

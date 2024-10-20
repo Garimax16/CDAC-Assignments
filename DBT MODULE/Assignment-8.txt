@@ -1,0 +1,49 @@
+1) Assume each salesperson has a 12% commission. Write a query on the orders table that will produce the order number, the salesperson number, and the amount of the salesperson’s commission for that order.
+
+
+SELECT 
+    order_number, 
+    salesperson_number, 
+    (order_amount * 0.12) AS commission
+FROM 
+    orders;
+This query assumes that there is an order_amount field in the orders table representing the total value of the order.
+
+2) Write a query on the Customers table that will find the highest rating in each city. Put the output in this form: "For the city (city), the highest rating is: (rating)."
+
+
+SELECT 
+    CONCAT('For the city ', city, ', the highest rating is: ', MAX(rating)) AS result
+FROM 
+    customers
+GROUP BY 
+    city;
+This query uses CONCAT to format the output in the specified sentence form and MAX(rating) to find the highest rating for each city.
+
+3) Write a query that lists customers in descending order of rating. Output the rating field first, followed by the customer’s name and number.
+
+
+SELECT 
+    rating, 
+    customer_name, 
+    customer_number
+FROM 
+    customers
+ORDER BY 
+    rating DESC;
+This query lists customers in descending order of their rating, showing the rating field first, followed by the customer_name and customer_number.
+
+4) Write a query that totals the orders for each day and places the results in descending order.
+
+
+SELECT 
+    order_date, 
+    SUM(order_amount) AS total_orders
+FROM 
+    orders
+GROUP BY 
+    order_date
+ORDER BY 
+    total_orders DESC;
+This query groups the orders by order_date, sums the order_amount, and sorts the result in descending order of the total orders for each day.
+

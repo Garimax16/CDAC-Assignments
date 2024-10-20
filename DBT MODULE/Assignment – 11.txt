@@ -1,0 +1,48 @@
+                                                      Assignment – 11
+                                                       Subqueries.
+ 
+
+1) Write a query that uses a subquery to obtain all orders for the customer named Cisneros. Assume you do not know his customer number (cnum).
+
+
+SELECT 
+    order_number, 
+    customer_number, 
+    order_amount
+FROM 
+    orders
+WHERE 
+    customer_number = (SELECT cnum FROM customers WHERE customer_name = 'Cisneros');
+The subquery inside the WHERE clause retrieves the customer number (cnum) of the customer named Cisneros.
+The outer query then fetches all orders related to that customer.
+2) Write a query that produces the names and ratings of all customers who have above-average orders.
+
+
+SELECT 
+    customer_name, 
+    rating
+FROM 
+    customers
+WHERE 
+    cnum IN (
+        SELECT customer_number 
+        FROM orders 
+        GROUP BY customer_number 
+        HAVING SUM(order_amount) > (SELECT AVG(total_order) FROM (SELECT SUM(order_amount) AS total_order FROM orders GROUP BY customer_number) subquery)
+    );
+The inner subquery calculates the total orders for each customer.
+The main query compares the sum of the orders for each customer against the average order amount, and then selects the customers whose total order amounts are above this average.
+3) Write a query that selects the total amount in orders for each salesperson for whom this total is greater than the amount of the largest order in the table.
+
+
+SELECT 
+    salesperson_number, 
+    SUM(order_amount) AS total_sales
+FROM 
+    orders
+GROUP BY 
+    salesperson_number
+HAVING 
+    SUM(order_amount) > (SELECT MAX(order_amount) FROM orders);
+The subquery retrieves the largest order amount in the entire table.
+The outer query calculates the total amount of orders for each salesperson and selects only those whose total is greater than the largest order amount.

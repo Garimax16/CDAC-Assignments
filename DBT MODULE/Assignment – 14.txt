@@ -1,0 +1,40 @@
+                                                           Assignment – 14
+                                              Entering, Deleting, and Changing Field Values.
+
+
+1) Write a command that puts the following values, in their given order, into the salespeople table: city – San Jose, name – Blanco, comm – NULL, snum – 1100.
+
+
+INSERT INTO salespeople (city, name, comm, snum)
+VALUES ('San Jose', 'Blanco', NULL, 1100);
+This command inserts a new row into the salespeople table with the specified values.
+The comm (commission) field is set to NULL.
+
+
+2) Write a command that removes all orders from customer Clemens from the Orders table.
+
+
+DELETE FROM orders
+WHERE customer_number = (SELECT customer_number FROM customers WHERE customer_name = 'Clemens');
+This command deletes all orders from the orders table where the customer_number matches the customer named "Clemens".
+It uses a subquery to get the customer_number for "Clemens" from the customers table.
+
+
+3) Write a command that increases the rating of all customers in Rome by 100.
+
+
+UPDATE customers
+SET rating = rating + 100
+WHERE city = 'Rome';
+This command updates the rating of all customers located in "Rome" by increasing it by 100.
+The WHERE clause ensures that only customers in "Rome" are affected.
+
+
+4) Salesperson Serres has left the company. Assign her customers to Motika.
+
+
+UPDATE customers
+SET salesperson_number = (SELECT salesperson_number FROM salespeople WHERE name = 'Motika')
+WHERE salesperson_number = (SELECT salesperson_number FROM salespeople WHERE name = 'Serres');
+This command assigns all customers previously assigned to the salesperson "Serres" to the salesperson "Motika".
+It uses subqueries to find the salesperson_number for both "Serres" and "Motika".

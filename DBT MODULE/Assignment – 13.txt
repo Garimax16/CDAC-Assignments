@@ -1,0 +1,93 @@
+                                                           Assignment – 13
+                                                        Using the UNION clause.
+ 
+
+1) Create a union of two queries that shows the names, cities, and ratings of all customers. Those with a rating of 200 or greater will also have the words "High Rating", while the others will have the words "Low Rating".
+
+
+SELECT 
+    customer_name, 
+    city, 
+    rating, 
+    'High Rating' AS rating_label
+FROM 
+    customers
+WHERE 
+    rating >= 200
+
+UNION
+
+SELECT 
+    customer_name, 
+    city, 
+    rating, 
+    'Low Rating' AS rating_label
+FROM 
+    customers
+WHERE 
+    rating < 200;
+The first query selects customers with a rating of 200 or higher and labels them "High Rating".
+The second query selects customers with a rating lower than 200 and labels them "Low Rating".
+UNION merges the two results.
+2) Write a command that produces the name and number of each salesperson and each customer with more than one current order. Put the results in alphabetical order.
+
+
+SELECT 
+    salesperson_name AS name, 
+    salesperson_number AS number
+FROM 
+    salespeople
+
+UNION
+
+SELECT 
+    customer_name AS name, 
+    customer_number AS number
+FROM 
+    customers
+WHERE 
+    customer_number IN (
+        SELECT 
+            customer_number 
+        FROM 
+            orders 
+        GROUP BY 
+            customer_number 
+        HAVING 
+            COUNT(order_number) > 1
+    )
+ORDER BY 
+    name;
+The first part of the UNION query selects the name and number of all salespeople.
+The second part selects customers who have more than one current order by checking for customer_number in the orders table.
+The results are combined and sorted in alphabetical order by name.
+3) Form a union of three queries. Have the first select the snums of all salespeople in San Jose; the second, the cnums of all customers in San Jose; and the third the onums of all orders on October 3. Retain duplicates between the last two queries but eliminate any redundancies between either of them and the first.
+
+
+SELECT 
+    salesperson_number AS num
+FROM 
+    salespeople
+WHERE 
+    city = 'San Jose'
+
+UNION
+
+SELECT 
+    customer_number AS num
+FROM 
+    customers
+WHERE 
+    city = 'San Jose'
+
+UNION ALL
+
+SELECT 
+    order_number AS num
+FROM 
+    orders
+WHERE 
+    order_date = '2023-10-03';
+The first query selects the snum (salesperson number) of all salespeople located in San Jose.
+The second query selects the cnum (customer number) of all customers located in San Jose.
+The third query selects the onum (order number) of all orders placed on October 3. UNION ALL ensures that duplicates are retained between the customer and order queries, while UNION eliminates any redundancy between them and the salespeople.

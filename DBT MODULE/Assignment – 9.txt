@@ -1,0 +1,79 @@
+                                                      Assignment – 9
+                                             Querying Multiple Tables at Once.
+
+
+1) Write a query that lists each order number followed by the name of the customer who made the order.
+
+
+SELECT 
+    o.order_number, 
+    c.customer_name
+FROM 
+    orders o
+JOIN 
+    customers c 
+ON 
+    o.customer_id = c.customer_id;
+This query uses an INNER JOIN between the orders and customers tables on customer_id to list each order number along with the corresponding customer’s name.
+
+2) Write a query that gives the names of both the salesperson and the customer for each order along with the order number.
+
+SELECT 
+    o.order_number, 
+    c.customer_name, 
+    s.salesperson_name
+FROM 
+    orders o
+JOIN 
+    customers c 
+ON 
+    o.customer_id = c.customer_id
+JOIN 
+    salespeople s 
+ON 
+    o.salesperson_id = s.salesperson_id;
+This query joins the orders, customers, and salespeople tables to retrieve the order number, customer name, and salesperson name for each order.
+
+3) Write a query that produces all customers serviced by salespeople with a commission above 12%. Output the customer’s name, the salesperson’s name, and the salesperson’s rate of commission.
+
+
+SELECT 
+    c.customer_name, 
+    s.salesperson_name, 
+    s.commission_rate
+FROM 
+    customers c
+JOIN 
+    orders o 
+ON 
+    c.customer_id = o.customer_id
+JOIN 
+    salespeople s 
+ON 
+    o.salesperson_id = s.salesperson_id
+WHERE 
+    s.commission_rate > 0.12;
+This query joins the customers, orders, and salespeople tables and filters the results to only include salespeople with a commission_rate above 12%.
+
+4) Write a query that calculates the amount of the salesperson’s commission on each order by a customer with a rating above 100.
+
+
+SELECT 
+    o.order_number, 
+    c.customer_name, 
+    s.salesperson_name, 
+    (o.order_amount * s.commission_rate) AS commission
+FROM 
+    orders o
+JOIN 
+    customers c 
+ON 
+    o.customer_id = c.customer_id
+JOIN 
+    salespeople s 
+ON 
+    o.salesperson_id = s.salesperson_id
+WHERE 
+    c.rating > 100;
+This query calculates the commission for each order made by a customer with a rating above 100. It joins the orders, customers, and salespeople tables and multiplies the order_amount by the salesperson’s commission_rate to calculate the commission.
+

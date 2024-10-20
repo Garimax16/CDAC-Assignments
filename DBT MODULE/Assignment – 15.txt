@@ -1,0 +1,39 @@
+                                                       Assignment – 15
+                                              Using Subqueries with DML Commands.
+
+
+
+
+1) Assume there is a table called Multicust, with all of the same column definitions as Salespeople. Write a command that inserts all salespeople with more than one customer into this table.
+
+
+INSERT INTO Multicust (snum, name, city, comm)
+SELECT s.snum, s.name, s.city, s.comm
+FROM salespeople s
+WHERE (SELECT COUNT(*) FROM customers c WHERE c.salesperson_number = s.snum) > 1;
+This command inserts all salespeople who have more than one customer into the Multicust table.
+The subquery inside the WHERE clause counts the number of customers assigned to each salesperson and filters those with more than one customer.
+
+
+2) Write a command that deletes all customers with no current orders.
+
+
+DELETE FROM customers
+WHERE customer_number NOT IN (SELECT customer_number FROM orders);
+This command deletes all customers who do not have any orders in the orders table.
+The subquery selects all customer_number values from the orders table, and the NOT IN clause deletes customers whose customer_number is not present in that list.
+
+
+3) Write a command that increases by twenty percent the commissions of all salespeople with total orders above Rs. 3,000.
+
+
+UPDATE salespeople
+SET comm = comm * 1.20
+WHERE snum IN (
+    SELECT o.salesperson_number
+    FROM orders o
+    GROUP BY o.salesperson_number
+    HAVING SUM(o.amount) > 3000
+);
+This command updates the comm (commission) of all salespeople whose total orders exceed Rs. 3,000 by increasing it by 20%.
+The subquery calculates the total order amount per salesperson and selects those with sums greater than Rs. 3,000. The HAVING clause is used for this aggregation.
