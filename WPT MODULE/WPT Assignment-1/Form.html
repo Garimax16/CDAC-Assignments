@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .container{
+            width:800px;
+            background-color:rgb(121, 153, 167);
+            display: flex;
+            max-width: 1300px;
+            margin-left: auto;
+            margin-right: auto;
+            height:1000px;
+            width: 1200px;
+
+        }
+        .Col1{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: 60px;
+            margin-top: 50px;
+            width: 300px;
+        }
+        .Col2{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 50px;
+            width: 750px;
+
+
+        }
+        .Col3{
+            background-color:rgb(191, 219, 228);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:105px;
+            width: 300px;
+
+
+        }
+    
+        .Col4{
+            background-color:rgb(191, 219, 228);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 105px;
+            width: 750px;
+
+
+        }
+        .Col5{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:165px;
+            width: 300px;
+
+
+        }
+    
+        .Col6{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 165px;
+            width: 750px;
+
+
+        }
+        .Col7{
+            background-color:rgb(191, 219, 228);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:220px;
+            width: 300px;
+
+
+        }
+    
+        .Col8{
+            background-color:rgb(191, 219, 228);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 220px;
+            width: 750px;
+
+
+        }
+        .Col9{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:275px;
+            width: 300px;
+
+
+        }
+    
+        .Col10{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 275px;
+            width: 750px;
+
+
+        }
+        .Col11{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:330px;
+            width: 300px;
+
+
+        }
+    
+        .Col12{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 330px;
+            width: 750px;
+        }
+        .Col13{
+            background-color:rgb(191, 219, 228);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:330px;
+            width: 300px;
+
+
+        }
+    
+        .Col14{
+            background-color:rgb(191, 219, 228);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 330px;
+            width: 750px;
+        }
+        .Col15{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:385px;
+            width: 300px;
+
+
+        }
+    
+        .Col16{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 385px;
+            width: 750px;
+        }
+        .Col17{
+            background-color:rgb(191, 219, 228);
+            height:115px;
+            margin-left: -1080px;
+            margin-top:440px;
+            width: 300px;
+
+
+        }
+    
+        .Col18{
+            background-color:rgb(191, 219, 228);
+            height:115px;
+            margin-left: 30px;
+            margin-top: 440px;
+            width: 750px;
+        }
+        .Col19{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:565px;
+            width: 300px;
+
+
+        }
+    
+        .Col20{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 565px;
+            width: 750px;
+        }
+        .Col21{
+            background-color:rgb(191, 219, 228);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:620px;
+            width: 300px;
+
+
+        }
+    
+        .Col22{
+            background-color:rgb(191, 219, 228);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 620px;
+            width: 750px;
+        }
+        .Col23{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:675px;
+            width: 300px;
+
+
+        }
+    
+        .Col24{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 675px;
+            width: 750px;
+        }
+        .Col25{
+            background-color:rgb(191, 219, 228);
+            height:69px;
+            margin-left: -1080px;
+            margin-top:730px;
+            width: 300px;
+
+
+        }
+    
+        .Col26{
+            background-color:rgb(191, 219, 228);
+            height:69px;
+            margin-left: 30px;
+            margin-top: 730px;
+            width: 750px;
+        }
+        .Col27{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: -1080px;
+            margin-top:808px;
+            width: 300px;
+
+
+        }
+    
+        .Col28{
+            background-color:rgb(221, 236, 237);
+            height:45px;
+            margin-left: 30px;
+            margin-top: 808px;
+            width: 750px;
+        }
+        .Col29{
+            background-color:rgb(191, 219, 228);
+            height:77px;
+            margin-left: -1080px;
+            margin-top:862px;
+            width: 300px;
+
+
+        }
+    
+        .Col30{
+            background-color:rgb(191, 219, 228);
+            height:77px;
+            margin-left: 30px;
+            margin-top: 862px;
+            width: 750px;
+        }
+    p{
+        margin-top: 4px;
+    }
+    select{
+        margin-left: 20px;
+      }
+    .button{
+        margin-top: 950px;
+        margin-left: -589px;
+        height:40px;
+        width:80px;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-bottom: -10px;
+    }
+.SC{
+    width:750px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    
+        <div class="Col1">
+            <p>First Name*</p>
+        </div>
+        <div class="Col2">
+            <input type="text" placeholder="Enter your first name" style="height:32px; margin-top:5px;margin-left:5px; width:281px;">
+            <h>(Maximum 35 characters)</h>
+        </div>
+        <br>
+        <div class="Col3">
+            <p>Confirm First Name* </p>
+        </div>
+        <div class="Col4">
+            <input type="text" placeholder="Confirm  last name" style="height:32px; margin-top:5px;margin-left:5px; width:281px;">
+            <h>(Maximum 35 characters)</h>
+
+        </div>
+        <div class="Col5">
+            <p>Middle Name</p>
+        </div>
+        <div class="Col6">
+            <input type="text" placeholder="Enter your last name" style="height:32px; margin-top:5px;margin-left:5px; width:281px;">
+            <h>(Maximum 35 characters)</h>
+
+        </div>
+        <div class="Col7">
+            <p>Confirm Middle Name</p>
+        </div>
+        <div class="Col8">
+            <input type="text" placeholder="Confirm Middle name" style="height:32px; margin-top:5px;margin-left:5px; width:281px;">
+            <h>(Maximum 35 characters)</h>
+
+        </div>
+        <div class="Col9">
+            <p>Last Name</p>
+        </div>
+        <div class="Col10">
+            <input type="text" placeholder="Enter your last name" style="height:32px; margin-top:5px;margin-left:5px; width:281px;">
+            <h>(Maximum 35 characters)</h>
+
+        </div>
+        <div class="Col11">
+            <p>Confirm Last Name</p>
+        </div>
+        <div class="Col12">
+            <input type="text" placeholder="Confirm last name" style="height:32px; margin-top:5px;margin-left:5px; width:281px;">
+            <h>(Maximum 35 characters)</h>
+
+        </div>
+        <div class="Col13">
+            <p>Confirm Last Name</p>
+        </div>
+        <div class="Col14">
+            <input type="text" placeholder="Confirm last name" style="height:32px; margin-top:5px;margin-left:5px; width:281px;">
+            <h>(Maximum 35 characters)</h>
+
+        </div>
+        <div class="Col15">
+            <p>Full Name</p>
+        </div>
+        <div class="Col16">
+            <input type="text" placeholder="Enter your Full name" style="height:32px; margin-top:5px;margin-left:5px; width:481px;">
+        </div>
+        <div class="Col17">
+        </div>
+        <div class="Col18">
+            <p >The name entered in the online application form should match exactly with the requisite documnets (photo ID etc.) to be to be produces at the time of the examination and the interview
+              You will be debarred from the selection process,if there is any disrepency in the name entered by you in the online application form and the name printed in the documents produced at the time of examination/Interview.However only 35 characters will be printed in your call letter.<b>Any 
+              requests for subsequent changes regarding the changes will not be entertained. </b>
+            </p>
+        </div>
+        <div class="Col19">
+            <p>Mobile No.*</p>
+        </div>
+        <div class="Col20">
+            <input type="text" placeholder="Enter your number" style="height:32px; margin-top:5px;margin-left:5px; width:481px;">
+            <h>(10 digits)  Please do not prefix zero(0)</h>
+
+        </div>
+        <div class="Col21">
+            <p>Confirm Mobile No.*</p>
+        </div>
+        <div class="Col22">
+            <input type="text" placeholder="Enter number" style="height:32px; margin-top:5px;margin-left:5px; width:481px;">
+            <h>(10 digits)  Please do not prefix zero(0)</h>
+
+        </div>
+        <div class="Col23">
+            <p>Alternate Mobile No.*</p>
+        </div>
+        <div class="Col24">
+            <input type="text" placeholder="Enter number" style="height:32px; margin-top:5px;margin-left:5px; width:481px;">
+            <h>(10 digits)  Please do not prefix zero(0)</h>
+
+        </div>
+        <div class="Col25">
+        </div>
+        <div class="Col26">
+            <p>Pleasecheck that the mentioned mobile number and the email-id will only be the medium to notify you all about the updates.It is in your own interest
+                that both the details should be valid and kept active till the selection process.<b>Any requests for subsequent changes regarding the changes will not be entertained.</b>  </p>
+        </div>
+        <div class="Col27">
+            <p>Email-ID*</p>
+        </div>
+        <div class="Col28">
+            <input type="text" placeholder="Enter your email-ID" style="height:32px; margin-top:5px;margin-left:5px; width:481px;">
+            <select >
+                <option value="101"  >Domain Name</option>
+                </select>
+        </div>
+        <div class="Col29">
+            <p class="SC">Security Code*</p>
+        </div>
+        <div class="Col30">
+            <input type="text"  style="height:32px; margin-top:-3px; margin-left:5px; width:181px;">
+            <img src="Images/pic.png.png" style="margin-left:10px; margin-top:8px;">
+        </div>
+        <div class="button">
+        <input type="submit" style = "width:70px; height:40px; margin-bottom: 40px;">">            </div>
+    
+        
+    </div>
+    
+</body>
+</html>
