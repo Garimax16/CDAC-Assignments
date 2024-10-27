@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Elite Synergy</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+   <style>
+      body {
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         background: linear-gradient(120deg, #eceff1, #b0bec5);
+         color: #37474f;
+      }
+      nav {
+         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+         padding: 10px 30px;
+         background-color: #455a64;
+      }
+      nav .navbar-brand {
+         font-size: 2rem;
+         font-weight: bold;
+         color: white;
+         font-family: 'Times New Roman', Times, serif;
+      }
+      nav .nav-link {
+         color: #ffffff;
+         font-weight: 500;
+         margin-left:70px ;
+         transition: color 0.3s ease;
+      }
+      nav .nav-link:hover {
+         color: #c4d1de;
+      }
+      #intro {
+         padding: 60px 20px;
+         text-align: center;
+         color: #455a64;
+      }
+      #intro h2 {
+         font-size: 2.5rem;
+         margin-bottom: 20px;
+         font-style: oblique;
+         font-weight: bold;
+      }
+      #intro p {
+         max-width: 800px;
+         margin: auto;
+         font-size: 1.25rem;
+         line-height: 1.6;
+      }
+      #row-container .card {
+         border: none;
+         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+         transition: transform 0.3s ease;
+         border-radius: 15px;
+      }
+      #row-container .card:hover {
+         transform: scale(1.05);
+      }
+      footer {
+         background-color: #455a64;
+         padding: 20px 0;
+         color: white;
+         text-align: center;
+         font-size: 1rem;
+      }
+      footer a {
+         color: #cfd8dc;
+         font-size: 1.1rem;
+      }
+      footer a:hover {
+         color: #ffffff;
+         text-decoration: underline;
+      }
+      .nav-link{
+        
+         background:#527180;;
+         color: white;
+         border-radius: white;
+         border:20px;
+      
+      }
+      .nav-item{
+        border-radius: white;
+
+      }
+   </style>
+</head>
+
+<body>
+
+   <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+         <a class="navbar-brand" href="#">Elite Synergy</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+               <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+               <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5500/Aboutus.html#">About Us</a></li>
+               <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5500/ContactUs.html">Contact Us</a></li>
+               <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+               <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
+               <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5500/LoginSignup.html">Login/SignUp</a></li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+
+   <section id="intro" class="container mt-5">
+      <h2>Welcome to Elite Synergy!</h2>
+      <p>Elite Synergy represents the transformative potential of unified collaboration in today's fast-evolving
+         industries. More than just connecting resources or talents, it is about seamlessly integrating technology,
+         people, and ideas to maximize innovation and impact. Through powerful, integrated solutions, Elite Synergy
+         redefines the possibilities of collaborative success.</p>
+      <button class="btn btn-outline-secondary mt-3">Click for more</button>
+   </section>
+
+   <section id="row-container" class="container mt-5">
+      <div class="row g-4">
+         <div class="col-md-4">
+            <div class="card p-4 text-center">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBdfK3UwlSnc9yM8qyk8kkxWJ4-h9Wh-Ygjw&s" class="card-img-top rounded mb-3" alt="Elite Synergy Solutions">
+               <h3 class="card-title">Elite Synergy Solutions</h3>
+               <p class="card-text">It’s not just about connecting resources or talents—it’s about creating a seamless
+                  integration of technology, people, and ideas to maximize innovation and impact.</p>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="card p-4 text-center">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcFP9nHFsFwfdU3q4WwStzdhNdcbNYWxHY3g&s" class="card-img-top rounded mb-3" alt="Synergy Elite Security">
+               <h3 class="card-title">Synergy Elite Security</h3>
+               <p class="card-text">Seamlessly integrate technology, people, and ideas to maximize innovation and
+                  impact.</p>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="card p-4 text-center">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuxr7I5X4G-qkcG-Dn9y01uCMy93a2e85n0w&s" class="card-img-top rounded mb-3" alt="Synergy Group">
+               <h3 class="card-title">Synergy Group</h3>
+               <p class="card-text">Seamlessly integrate technology, people, and ideas to maximize innovation and
+                  impact.</p>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <footer class="mt-5">
+      <div class="container">
+         <h5>Contact Information</h5>
+         <p><a href="#">Phone No: 1234567890</a></p>
+         <p><a href="mailto:abcd@gmail.com">Email: ABCD@gmail.com</a></p>
+         <p><a href="https://github.com/garima">GitHub</a></p>
+         <p><a href="https://linkedin.com/in/garima">LinkedIn</a></p>
+      </div>
+   </footer>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
