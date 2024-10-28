@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove Dropdown Item</title>
+    <style>
+        body{
+            background-color: rgb(225, 214, 205);
+        }
+        .container{
+            background-color: rgb(194, 126, 78);
+            margin-top: 18%;
+            width:60%;
+            height: 250px;
+            border-radius: 30px;
+            margin-left: 19%;
+        }
+        #dropdown{
+            width: 200px;
+            height: 40px;
+            margin-top: 8%;
+            margin-left: 33%;
+            font-size: 17px;
+
+
+
+        }
+        #but{
+            width: 200px;
+            height: 40px;
+            margin-top: 4%;
+            font-size: 17px;
+            margin-left: 1%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <select id="dropdown">
+        <option value="1">Good Morning</option>
+        <option value="2">Good Afternoon</option>
+        <option value="3">Good Evening</option>
+        <option value="4">Good Night</option>
+    </select>
+    <button id="but" onclick="removeItem()">Remove Selected Item</button>
+
+    <script>
+        function removeItem() {
+            let dropdown = document.getElementById("dropdown");
+            dropdown.remove(dropdown.selectedIndex);
+        }
+    </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Highlight Bold Text</title>
+    <style>
+        .container{
+            background-color: rgb(194, 126, 78);
+            margin-top: 18%;
+            width:60%;
+            height: 250px;
+            border-radius: 30px;
+            margin-left: 19%;
+        }
+        body{
+            background-color: rgb(225, 214, 205);
+        }
+        a{
+            font-size:30px ;
+            margin-left: 13%;
+        }
+        .highlight {
+            color: green;
+
+            font-weight: bold;
+        }
+        #text{
+            font-size: 26px;
+            margin-left: 1%;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <p><a href="#" onmouseover="highlightBold()" onmouseout="removeHighlight()">On mouse over here bold words of the following paragraph will be highlighted</a></p>
+    <p id="text">
+       just started this section for the users (<b>beginner</b> to <b>intermediate</b>) who <b>want</b> to work with <b>various</b> JavaScript <b>problems</b> and write scripts online to <b>test</b> their JavaScript <b>skill</b>.
+    </p>
+
+    <script>
+        function highlightBold() {
+            let boldWords = document.querySelectorAll("#text b");
+            boldWords.forEach(word => {
+                word.classList.add("highlight");
+            });
+        }
+
+        function removeHighlight() {
+            let boldWords = document.querySelectorAll("#text b");
+            boldWords.forEach(word => {
+                word.classList.remove("highlight");
+            });
+        }
+    </script>
+
+</div>
+</body>
+</html>
